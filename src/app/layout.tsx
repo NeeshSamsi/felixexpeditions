@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          alegreya.className,
+          alegreya.variable,
           "bg-background text-foreground font-sans",
         )}
       >
