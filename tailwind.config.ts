@@ -22,6 +22,16 @@ const config = {
       fontFamily: {
         sans: ["var(--font-alegreya)", ...defaultTheme.fontFamily.sans],
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "2rem",
+          lg: "4rem",
+          xl: "5rem",
+          "2xl": "6rem",
+        },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
