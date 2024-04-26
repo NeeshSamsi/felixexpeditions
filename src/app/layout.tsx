@@ -5,6 +5,7 @@ import "./globals.css"
 import { cn } from "@/lib/utils"
 import { createClient } from "@/prismicio"
 import NavBar from "@/components/NavBar"
+import Footer from "@/components/Footer"
 
 const alegreya = Alegreya_Sans({
   subsets: ["latin"],
@@ -33,11 +34,12 @@ export default async function RootLayout({
       <body
         className={cn(
           alegreya.variable,
-          "container mx-auto bg-background px-8 font-sans text-foreground",
+          "container mx-auto space-y-24 bg-background px-8 font-sans text-foreground",
         )}
       >
         <NavBar navigation_links={navigation_links} />
         {children}
+        <Footer />
       </body>
     </html>
   )
