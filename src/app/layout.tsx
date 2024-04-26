@@ -3,7 +3,8 @@ import { Alegreya_Sans } from "next/font/google"
 import "./globals.css"
 
 import { cn } from "@/lib/utils"
-import { createClient } from "@/prismicio"
+import { createClient, repositoryName } from "@/prismicio"
+import { PrismicPreview } from "@prismicio/next"
 import NavBar from "@/components/NavBar"
 import Footer from "@/components/Footer"
 
@@ -40,6 +41,7 @@ export default async function RootLayout({
         <NavBar navigation_links={navigation_links} />
         {children}
         <Footer />
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   )
