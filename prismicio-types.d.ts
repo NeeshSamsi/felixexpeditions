@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client"
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
-type PageDocumentDataSlicesSlice = never
+type PageDocumentDataSlicesSlice = HeroSlice
 
 /**
  * Content for Page documents
@@ -105,7 +105,84 @@ interface SiteSettingsDocumentData {
    */
   navigation_links: prismic.GroupField<
     Simplify<SiteSettingsDocumentDataNavigationLinksItem>
-  > /**
+  >
+
+  /**
+   * Footer Description field in *Site Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.footer_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_description: prismic.KeyTextField
+
+  /**
+   * Instagram Profile field in *Site Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.instagram
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instagram: prismic.LinkField
+
+  /**
+   * LinkedIn Profile field in *Site Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.linkedin
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin: prismic.LinkField
+
+  /**
+   * Twitter Profile field in *Site Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.twitter
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  twitter: prismic.LinkField
+
+  /**
+   * Mailing List Heading field in *Site Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.mailing_list_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mailing_list_heading: prismic.KeyTextField
+
+  /**
+   * Mailing List Sub Heading field in *Site Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.mailing_list_sub_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mailing_list_sub_heading: prismic.KeyTextField
+
+  /**
+   * Mailing List Call to Action field in *Site Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.mailing_list_call_to_action
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mailing_list_call_to_action: prismic.KeyTextField /**
    * Meta Title field in *Site Settings*
    *
    * - **Field Type**: Text
@@ -157,6 +234,276 @@ export type SiteSettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = PageDocument | SiteSettingsDocument
 
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Sub Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField
+
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Body Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceWithImagePrimary {
+  /**
+   * Sub Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField
+
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Body Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+
+  /**
+   * Call to Action - Button Label field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.cta_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_label: prismic.KeyTextField
+
+  /**
+   * Call to Action - Button Link field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: /#trips
+   * - **API ID Path**: hero.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_link: prismic.KeyTextField
+
+  /**
+   * Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * With Image Right variation for Hero Slice
+ *
+ * - **API ID**: `withImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceWithImage = prismic.SharedSliceVariation<
+  "withImage",
+  Simplify<HeroSliceWithImagePrimary>,
+  never
+>
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceWithImageBottomPrimary {
+  /**
+   * Sub Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField
+
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Body Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+
+  /**
+   * Image Left field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>
+
+  /**
+   * Image Right field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>
+}
+
+/**
+ * With Image Bottom variation for Hero Slice
+ *
+ * - **API ID**: `withImageBottom`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceWithImageBottom = prismic.SharedSliceVariation<
+  "withImageBottom",
+  Simplify<HeroSliceWithImageBottomPrimary>,
+  never
+>
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceContactFormPrimary {
+  /**
+   * Sub Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField
+
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Body Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+
+  /**
+   * Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Contact Form variation for Hero Slice
+ *
+ * - **API ID**: `contactForm`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceContactForm = prismic.SharedSliceVariation<
+  "contactForm",
+  Simplify<HeroSliceContactFormPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation =
+  | HeroSliceDefault
+  | HeroSliceWithImage
+  | HeroSliceWithImageBottom
+  | HeroSliceContactForm
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -174,6 +521,16 @@ declare module "@prismicio/client" {
       SiteSettingsDocumentData,
       SiteSettingsDocumentDataNavigationLinksItem,
       AllDocumentTypes,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceWithImagePrimary,
+      HeroSliceWithImageBottomPrimary,
+      HeroSliceContactFormPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
+      HeroSliceWithImage,
+      HeroSliceWithImageBottom,
+      HeroSliceContactForm,
     }
   }
 }

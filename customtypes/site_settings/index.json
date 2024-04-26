@@ -30,6 +30,61 @@
             }
           }
         }
+      },
+      "footer_description": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Description",
+          "placeholder": ""
+        }
+      },
+      "instagram": {
+        "type": "Link",
+        "config": {
+          "label": "Instagram Profile",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "linkedin": {
+        "type": "Link",
+        "config": {
+          "label": "LinkedIn Profile",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "twitter": {
+        "type": "Link",
+        "config": {
+          "label": "Twitter Profile",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "mailing_list_heading": {
+        "type": "Text",
+        "config": {
+          "label": "Mailing List Heading",
+          "placeholder": ""
+        }
+      },
+      "mailing_list_sub_heading": {
+        "type": "Text",
+        "config": {
+          "label": "Mailing List Sub Heading",
+          "placeholder": ""
+        }
+      },
+      "mailing_list_call_to_action": {
+        "type": "Text",
+        "config": {
+          "label": "Mailing List Call to Action",
+          "placeholder": ""
+        }
       }
     },
     "SEO Metadata": {
