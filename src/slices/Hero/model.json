@@ -6,7 +6,7 @@
   "variations": [
     {
       "id": "default",
-      "name": "Default",
+      "name": "Minimal",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -104,7 +104,7 @@
     },
     {
       "id": "withImageBottom",
-      "name": "With Image Bottom",
+      "name": "With Images Bottom",
       "docURL": "...",
       "version": "initial",
       "description": "Default",

@@ -270,7 +270,7 @@ export interface HeroSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Hero Slice
+ * Minimal variation for Hero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -416,7 +416,7 @@ export interface HeroSliceWithImageBottomPrimary {
 }
 
 /**
- * With Image Bottom variation for Hero Slice
+ * With Images Bottom variation for Hero Slice
  *
  * - **API ID**: `withImageBottom`
  * - **Description**: Default
