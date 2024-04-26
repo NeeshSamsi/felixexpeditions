@@ -21,7 +21,7 @@ export default function NavBar({ navigation_links }: Props) {
 
   return (
     <>
-      <nav className="sticky inset-0 z-10 flex items-center justify-between gap-16 py-6">
+      <nav className="sticky inset-0 z-10 flex items-center justify-between gap-16 bg-background/10 py-6 backdrop-blur-sm">
         <Link href="/">
           <span className="sr-only">Home</span>
           <Image
