@@ -22,6 +22,7 @@ export default function NavLink({ label, path }: Props) {
           "font-medium text-primary hover:text-primary/80":
             asLink(path) === pathname,
         })}
+        aria-current={asLink(path) === pathname ? "page" : undefined}
       >
         {label}
       </PrismicNextLink>
