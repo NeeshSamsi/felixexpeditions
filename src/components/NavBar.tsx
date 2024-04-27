@@ -68,7 +68,7 @@ export default function NavBar({ navigation_links }: Props) {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-0 h-screen w-screen bg-background text-center text-xl md:hidden"
           >
-            <ul className="mt-32 grid gap-4">
+            <ul className="mt-32 grid gap-4" onClick={() => setOpen(false)}>
               {navigation_links.map(({ label, path }, index) => (
                 <NavLink key={index} label={label} path={path} />
               ))}
