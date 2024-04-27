@@ -235,6 +235,66 @@ export type SiteSettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SiteSettingsDocument
 
 /**
+ * Primary content in *Feature → Primary*
+ */
+export interface FeatureSliceDefaultPrimary {
+  /**
+   * Sub Heading field in *Feature → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.TitleField
+
+  /**
+   * Heading field in *Feature → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *Feature → Items*
+ */
+export interface FeatureSliceDefaultItem {
+  /**
+   * Icon field in *Feature → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Copy the icon name from https://lucide.dev
+   * - **API ID Path**: feature.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  icon: prismic.KeyTextField
+
+  /**
+   * title field in *Feature → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * description field in *Feature → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
  * Default variation for Feature Slice
  *
  * - **API ID**: `default`
@@ -243,8 +303,8 @@ export type AllDocumentTypes = PageDocument | SiteSettingsDocument
  */
 export type FeatureSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
-  never
+  Simplify<FeatureSliceDefaultPrimary>,
+  Simplify<FeatureSliceDefaultItem>
 >
 
 /**
@@ -549,6 +609,8 @@ declare module "@prismicio/client" {
       SiteSettingsDocumentDataNavigationLinksItem,
       AllDocumentTypes,
       FeatureSlice,
+      FeatureSliceDefaultPrimary,
+      FeatureSliceDefaultItem,
       FeatureSliceVariation,
       FeatureSliceDefault,
       HeroSlice,
