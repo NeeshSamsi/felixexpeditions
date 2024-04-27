@@ -106,7 +106,7 @@
 			},
 			"cta_link": {
 				"__TYPE__": "FieldContent",
-				"value": "reach",
+				"value": "central",
 				"type": "Text"
 			}
 		},

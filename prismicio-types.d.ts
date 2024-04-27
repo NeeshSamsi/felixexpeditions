@@ -330,7 +330,7 @@ export interface HeroSliceWithImagePrimary {
    * Call to Action - Button Link field in *Hero → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: /#trips
+   * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.cta_link
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */

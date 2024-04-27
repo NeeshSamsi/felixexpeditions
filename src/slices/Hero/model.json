@@ -88,7 +88,7 @@
           "type": "Text",
           "config": {
             "label": "Call to Action - Button Link",
-            "placeholder": "/#trips"
+            "placeholder": ""
           }
         },
         "image": {
