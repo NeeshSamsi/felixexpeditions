@@ -45,8 +45,9 @@ export default function MailingListForm({ cta }: Props) {
               <FormControl>
                 <Input
                   placeholder="Your email address..."
-                  className="rounded-sm text-lg placeholder:font-light xl:text-xl"
+                  type="email"
                   {...field}
+                  className="rounded-sm text-lg placeholder:font-light xl:text-xl"
                 />
               </FormControl>
 
