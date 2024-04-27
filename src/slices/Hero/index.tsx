@@ -22,9 +22,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn("", {
-        "flex flex-col items-start gap-12 lg:flex-row lg:items-center":
+        "flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:gap-12":
           slice.variation === "withImage",
-        "flex flex-col gap-12 lg:flex-row": slice.variation === "contactForm",
+        "flex flex-col gap-8 lg:flex-row lg:gap-12":
+          slice.variation === "contactForm",
         "": slice.variation === "withImageBottom",
       })}
     >

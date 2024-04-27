@@ -35,7 +35,7 @@ export default async function RootLayout({
       <body
         className={cn(
           alegreya.variable,
-          "container mx-auto space-y-8 bg-background px-8 font-sans text-foreground md:space-y-16 lg:space-y-24",
+          "container mx-auto space-y-16 bg-background px-8 font-sans text-foreground lg:space-y-24",
         )}
       >
         <NavBar navigation_links={navigation_links} />
