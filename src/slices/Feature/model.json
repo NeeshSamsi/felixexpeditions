@@ -1,0 +1,16 @@
+{
+  "id": "feature",
+  "type": "SharedSlice",
+  "name": "Feature",
+  "description": "Feature",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

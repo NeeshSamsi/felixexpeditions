@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client"
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
-type PageDocumentDataSlicesSlice = HeroSlice
+type PageDocumentDataSlicesSlice = FeatureSlice | HeroSlice
 
 /**
  * Content for Page documents
@@ -233,6 +233,33 @@ export type SiteSettingsDocument<Lang extends string = string> =
   >
 
 export type AllDocumentTypes = PageDocument | SiteSettingsDocument
+
+/**
+ * Default variation for Feature Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *Feature*
+ */
+type FeatureSliceVariation = FeatureSliceDefault
+
+/**
+ * Feature Shared Slice
+ *
+ * - **API ID**: `feature`
+ * - **Description**: Feature
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureSlice = prismic.SharedSlice<"feature", FeatureSliceVariation>
 
 /**
  * Primary content in *Hero → Primary*
@@ -521,6 +548,9 @@ declare module "@prismicio/client" {
       SiteSettingsDocumentData,
       SiteSettingsDocumentDataNavigationLinksItem,
       AllDocumentTypes,
+      FeatureSlice,
+      FeatureSliceVariation,
+      FeatureSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceWithImagePrimary,
