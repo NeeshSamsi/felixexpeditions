@@ -30,6 +30,7 @@ const Trips = async ({ slice }: TripsProps): Promise<JSX.Element> => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id="trips"
     >
       <SectionTitle
         subheading={slice.primary.subheading}
