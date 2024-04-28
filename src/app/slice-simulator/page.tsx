@@ -16,10 +16,7 @@ export default function SliceSimulatorPage({
 
   return (
     <div>
-      <SliceSimulator
-        background="#FDF8E2"
-        className="container mx-auto my-16 px-8"
-      >
+      <SliceSimulator background="#FDF8E2" className="container mx-auto px-8">
         <SliceZone slices={slices} components={components} />
       </SliceSimulator>
     </div>
