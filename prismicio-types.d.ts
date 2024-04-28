@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client"
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 type PageDocumentDataSlicesSlice =
+  | FaqsSlice
   | AboutSlice
   | TripsSlice
   | FeatureSlice
@@ -431,6 +432,93 @@ type AboutSliceVariation = AboutSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>
+
+/**
+ * Primary content in *Faqs → Primary*
+ */
+export interface FaqsSliceDefaultPrimary {
+  /**
+   * Sub Heading field in *Faqs → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.TitleField
+
+  /**
+   * Heading field in *Faqs → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Faqs → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *Faqs → Items*
+ */
+export interface FaqsSliceDefaultItem {
+  /**
+   * Question field in *Faqs → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField
+
+  /**
+   * Answer field in *Faqs → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  answer: prismic.KeyTextField
+}
+
+/**
+ * Default variation for Faqs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqsSliceDefaultPrimary>,
+  Simplify<FaqsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Faqs*
+ */
+type FaqsSliceVariation = FaqsSliceDefault
+
+/**
+ * Faqs Shared Slice
+ *
+ * - **API ID**: `faqs`
+ * - **Description**: Faqs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSlice = prismic.SharedSlice<"faqs", FaqsSliceVariation>
 
 /**
  * Primary content in *Features → Primary*
@@ -885,6 +973,11 @@ declare module "@prismicio/client" {
       AboutSliceDefaultItem,
       AboutSliceVariation,
       AboutSliceDefault,
+      FaqsSlice,
+      FaqsSliceDefaultPrimary,
+      FaqsSliceDefaultItem,
+      FaqsSliceVariation,
+      FaqsSliceDefault,
       FeatureSlice,
       FeatureSliceDefaultPrimary,
       FeatureSliceDefaultItem,
