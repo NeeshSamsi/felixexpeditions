@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Speech"
+						}
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Design"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "policeman",
+				"type": "Text"
+			},
+			"ctaText": {
+				"__TYPE__": "FieldContent",
+				"value": "store",
+				"type": "Text"
+			},
+			"ctaLink": {
+				"__TYPE__": "FieldContent",
+				"value": "ability",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

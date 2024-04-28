@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client"
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 type PageDocumentDataSlicesSlice =
+  | CallToActionSlice
   | FaqsSlice
   | AboutSlice
   | TripsSlice
@@ -432,6 +433,91 @@ type AboutSliceVariation = AboutSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+  /**
+   * Sub Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField
+
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Description field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+
+  /**
+   * Call To Action Text field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.ctaText
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  ctaText: prismic.KeyTextField
+
+  /**
+   * Call To Action Link field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: /#trips
+   * - **API ID Path**: call_to_action.primary.ctaLink
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  ctaLink: prismic.KeyTextField
+}
+
+/**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CallToActionSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation = CallToActionSliceDefault
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlice = prismic.SharedSlice<
+  "call_to_action",
+  CallToActionSliceVariation
+>
 
 /**
  * Primary content in *Faqs → Primary*
@@ -973,6 +1059,10 @@ declare module "@prismicio/client" {
       AboutSliceDefaultItem,
       AboutSliceVariation,
       AboutSliceDefault,
+      CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
+      CallToActionSliceVariation,
+      CallToActionSliceDefault,
       FaqsSlice,
       FaqsSliceDefaultPrimary,
       FaqsSliceDefaultItem,
