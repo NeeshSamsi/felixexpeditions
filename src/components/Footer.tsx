@@ -11,17 +11,21 @@ export default async function Footer() {
   const client = createClient()
 
   const {
-    data: {
-      footer_description,
-      instagram,
-      linkedin,
-      twitter,
-      mailing_list_heading,
-      mailing_list_sub_heading,
-      mailing_list_call_to_action,
-      navigation_links,
-    },
+    data: { footer, mailing_list, navigation_links },
   } = await client.getSingle("site_settings")
+
+  if (!footer[0]) throw new Error("No Footer Data in Site Settings.")
+  if (!mailing_list[0])
+    throw new Error("No Mailing List Data in Site Settings.")
+
+  const {
+    footer_description,
+    instagram_profile,
+    linkedin_profile,
+    twitter_profile,
+  } = footer[0]
+
+  const { heading, sub_heading, call_to_action } = mailing_list[0]
 
   return (
     <footer>
@@ -38,19 +42,19 @@ export default async function Footer() {
 
           <div className="flex items-center gap-4">
             <PrismicNextLink
-              field={instagram}
+              field={instagram_profile}
               className="rounded-full p-2 transition-colors hover:bg-muted"
             >
               <Icon name="instagram" strokeWidth={1.5} />
             </PrismicNextLink>
             <PrismicNextLink
-              field={linkedin}
+              field={linkedin_profile}
               className="rounded-full p-2 transition-colors hover:bg-muted"
             >
               <Icon name="linkedin" strokeWidth={1.5} />
             </PrismicNextLink>
             <PrismicNextLink
-              field={twitter}
+              field={twitter_profile}
               className="rounded-full p-2 transition-colors hover:bg-muted"
             >
               <Icon name="twitter" strokeWidth={1.5} />
@@ -60,15 +64,11 @@ export default async function Footer() {
 
         <div className="space-y-4">
           <div className="space-y-1">
-            <p className="text-xl font-bold xl:text-2xl">
-              {mailing_list_heading}
-            </p>
-            <p className="text-lg font-light xl:text-xl">
-              {mailing_list_sub_heading}
-            </p>
+            <p className="text-xl font-bold xl:text-2xl">{heading}</p>
+            <p className="text-lg font-light xl:text-xl">{sub_heading}</p>
           </div>
 
-          <MailingListForm cta={mailing_list_call_to_action} />
+          <MailingListForm cta={call_to_action} />
         </div>
 
         <div className="space-y-4 text-xl 2xl:text-2xl">
