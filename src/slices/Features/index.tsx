@@ -5,6 +5,7 @@ import dynamicIconImports from "lucide-react/dynamicIconImports"
 import SectionTitle from "@/components/SectionTitle"
 import Icon from "@/components/Icon"
 import Heading3 from "@/components/Heading3"
+import Text from "@/components/Text"
 
 /**
  * Props for `Feature`.
@@ -36,9 +37,9 @@ const Feature = ({ slice }: FeatureProps): JSX.Element => {
               />
               <span>{title}</span>
             </Heading3>
-            <p className="max-w-[45ch] text-base font-light lg:text-lg 2xl:text-xl">
+            <Text size="base" className="max-w-[45ch] font-light">
               {description}
-            </p>
+            </Text>
           </div>
         ))}
       </div>

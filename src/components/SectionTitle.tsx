@@ -3,6 +3,7 @@ import {
   type RichTextField,
   asText,
 } from "@prismicio/client"
+import Text from "./Text"
 
 type Props = {
   subheading: RichTextField
@@ -24,9 +25,9 @@ export default function SectionTitle({
         {asText(heading)}
       </p>
       {description && (
-        <p className="mt-4 text-balance text-lg lg:text-xl 2xl:text-2xl">
+        <Text size="lg" className="mt-4 max-w-[65ch] text-balance font-light">
           {description}
-        </p>
+        </Text>
       )}
     </>
   )
