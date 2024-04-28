@@ -12,9 +12,13 @@ export default function SliceSimulatorPage({
 }: SliceSimulatorParams) {
   const slices = getSlices(searchParams.state)
 
+  // container mx-auto px-8 font-sans text-foreground bg-background
+
   return (
-    <SliceSimulator>
-      <SliceZone slices={slices} components={components} />
-    </SliceSimulator>
+    <div>
+      <SliceSimulator>
+        <SliceZone slices={slices} components={components} />
+      </SliceSimulator>
+    </div>
   )
 }
