@@ -35,7 +35,7 @@ const Faqs = ({ slice }: FaqsProps): JSX.Element => {
           <AccordionItem
             key={index}
             value={`faq-${index}`}
-            className="space-y-4 rounded-sm border-b-0 bg-muted p-6"
+            className="space-y-4 rounded-sm border-b-0 bg-muted p-6 shadow-md shadow-secondary/20"
           >
             <AccordionTrigger className="p-0 text-start hover:no-underline">
               <Heading3>{question}</Heading3>
