@@ -31,12 +31,12 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         <Button asChild className="mt-6">
           <Link
             href={slice.primary.ctaLink!}
-            className="group flex items-center gap-4 text-base font-medium lg:text-lg 2xl:text-xl"
+            className="group flex items-center gap-4 text-lg font-medium lg:text-xl 2xl:text-2xl"
           >
             <span>{slice.primary.ctaText}</span>
             <Icon
               name="move-right"
-              className="transition-transform group-hover:translate-x-1"
+              className="size-8 transition-transform group-hover:translate-x-1"
             />
           </Link>
         </Button>
