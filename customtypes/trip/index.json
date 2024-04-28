@@ -1,0 +1,76 @@
+{
+  "format": "custom",
+  "id": "trip",
+  "label": "Trip",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "tags": {
+        "type": "Group",
+        "config": {
+          "label": "Tags",
+          "repeat": false,
+          "fields": {
+            "tag": {
+              "type": "Text",
+              "config": {
+                "label": "Tag",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": ""
+        }
+      },
+      "fromDate": {
+        "type": "Date",
+        "config": {
+          "label": "From Date",
+          "placeholder": ""
+        }
+      },
+      "toDate": {
+        "type": "Date",
+        "config": {
+          "label": "To Date",
+          "placeholder": ""
+        }
+      },
+      "duration": {
+        "type": "Text",
+        "config": {
+          "label": "Duration",
+          "placeholder": "x days / x nights"
+        }
+      },
+      "cta": {
+        "type": "Text",
+        "config": {
+          "label": "Call to Action",
+          "placeholder": ""
+        }
+      },
+      "brochure_pdf": {
+        "type": "Link",
+        "config": {
+          "label": "Brochure PDF",
+          "placeholder": "",
+          "select": "media"
+        }
+      }
+    }
+  }
+}

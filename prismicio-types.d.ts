@@ -232,14 +232,126 @@ export type SiteSettingsDocument<Lang extends string = string> =
     Lang
   >
 
-export type AllDocumentTypes = PageDocument | SiteSettingsDocument
+/**
+ * Item in *Trip → Tags*
+ */
+export interface TripDocumentDataTagsItem {
+  /**
+   * Tag field in *Trip → Tags*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.tags[].tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField
+}
 
 /**
- * Primary content in *Feature → Primary*
+ * Content for Trip documents
+ */
+interface TripDocumentData {
+  /**
+   * Tags field in *Trip*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.tags[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tags: prismic.GroupField<Simplify<TripDocumentDataTagsItem>>
+
+  /**
+   * Name field in *Trip*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField
+
+  /**
+   * From Date field in *Trip*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.fromDate
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  fromDate: prismic.DateField
+
+  /**
+   * To Date field in *Trip*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.toDate
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  toDate: prismic.DateField
+
+  /**
+   * Duration field in *Trip*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: x days / x nights
+   * - **API ID Path**: trip.duration
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  duration: prismic.KeyTextField
+
+  /**
+   * Call to Action field in *Trip*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.cta
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta: prismic.KeyTextField
+
+  /**
+   * Brochure PDF field in *Trip*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.brochure_pdf
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  brochure_pdf: prismic.LinkToMediaField
+}
+
+/**
+ * Trip document from Prismic
+ *
+ * - **API ID**: `trip`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TripDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TripDocumentData>, "trip", Lang>
+
+export type AllDocumentTypes =
+  | PageDocument
+  | SiteSettingsDocument
+  | TripDocument
+
+/**
+ * Primary content in *Features → Primary*
  */
 export interface FeatureSliceDefaultPrimary {
   /**
-   * Sub Heading field in *Feature → Primary*
+   * Sub Heading field in *Features → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -249,7 +361,7 @@ export interface FeatureSliceDefaultPrimary {
   sub_heading: prismic.TitleField
 
   /**
-   * Heading field in *Feature → Primary*
+   * Heading field in *Features → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -260,11 +372,11 @@ export interface FeatureSliceDefaultPrimary {
 }
 
 /**
- * Primary content in *Feature → Items*
+ * Primary content in *Features → Items*
  */
 export interface FeatureSliceDefaultItem {
   /**
-   * Icon field in *Feature → Items*
+   * Icon field in *Features → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Copy the icon name from https://lucide.dev
@@ -274,7 +386,7 @@ export interface FeatureSliceDefaultItem {
   icon: prismic.KeyTextField
 
   /**
-   * title field in *Feature → Items*
+   * title field in *Features → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -284,7 +396,7 @@ export interface FeatureSliceDefaultItem {
   title: prismic.KeyTextField
 
   /**
-   * description field in *Feature → Items*
+   * description field in *Features → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -295,7 +407,7 @@ export interface FeatureSliceDefaultItem {
 }
 
 /**
- * Default variation for Feature Slice
+ * Default variation for Features Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -308,12 +420,12 @@ export type FeatureSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
- * Slice variation for *Feature*
+ * Slice variation for *Features*
  */
 type FeatureSliceVariation = FeatureSliceDefault
 
 /**
- * Feature Shared Slice
+ * Features Shared Slice
  *
  * - **API ID**: `feature`
  * - **Description**: Feature
@@ -607,6 +719,9 @@ declare module "@prismicio/client" {
       SiteSettingsDocument,
       SiteSettingsDocumentData,
       SiteSettingsDocumentDataNavigationLinksItem,
+      TripDocument,
+      TripDocumentData,
+      TripDocumentDataTagsItem,
       AllDocumentTypes,
       FeatureSlice,
       FeatureSliceDefaultPrimary,
