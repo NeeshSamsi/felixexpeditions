@@ -233,34 +233,19 @@ export type SiteSettingsDocument<Lang extends string = string> =
   >
 
 /**
- * Item in *Trip → Tags*
- */
-export interface TripDocumentDataTagsItem {
-  /**
-   * Tag field in *Trip → Tags*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: trip.tags[].tag
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  tag: prismic.KeyTextField
-}
-
-/**
  * Content for Trip documents
  */
 interface TripDocumentData {
   /**
-   * Tags field in *Trip*
+   * Cover Image field in *Trip*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: trip.tags[]
+   * - **API ID Path**: trip.image
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  tags: prismic.GroupField<Simplify<TripDocumentDataTagsItem>>
+  image: prismic.ImageField<never>
 
   /**
    * Name field in *Trip*
@@ -793,7 +778,6 @@ declare module "@prismicio/client" {
       SiteSettingsDocumentDataNavigationLinksItem,
       TripDocument,
       TripDocumentData,
-      TripDocumentDataTagsItem,
       AllDocumentTypes,
       FeatureSlice,
       FeatureSliceDefaultPrimary,

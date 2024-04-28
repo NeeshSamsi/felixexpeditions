@@ -12,20 +12,12 @@
         },
         "type": "UID"
       },
-      "tags": {
-        "type": "Group",
+      "image": {
+        "type": "Image",
         "config": {
-          "label": "Tags",
-          "repeat": false,
-          "fields": {
-            "tag": {
-              "type": "Text",
-              "config": {
-                "label": "Tag",
-                "placeholder": ""
-              }
-            }
-          }
+          "label": "Cover Image",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "name": {
