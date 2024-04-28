@@ -642,16 +642,6 @@ export interface ContactInfoSliceDefaultPrimary {
   emails_heading: prismic.KeyTextField
 
   /**
-   * Offices Heading field in *ContactInfo → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact_info.primary.offices_heading
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  offices_heading: prismic.KeyTextField
-
-  /**
    * Phone Numbers Heading field in *ContactInfo → Primary*
    *
    * - **Field Type**: Text
@@ -660,6 +650,16 @@ export interface ContactInfoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   numbers_heading: prismic.KeyTextField
+
+  /**
+   * Offices Heading field in *ContactInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.primary.offices_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  offices_heading: prismic.KeyTextField
 }
 
 /**

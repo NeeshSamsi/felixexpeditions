@@ -19,17 +19,17 @@
             "placeholder": ""
           }
         },
-        "offices_heading": {
-          "type": "Text",
-          "config": {
-            "label": "Offices Heading",
-            "placeholder": ""
-          }
-        },
         "numbers_heading": {
           "type": "Text",
           "config": {
             "label": "Phone Numbers Heading",
+            "placeholder": ""
+          }
+        },
+        "offices_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Offices Heading",
             "placeholder": ""
           }
         }
