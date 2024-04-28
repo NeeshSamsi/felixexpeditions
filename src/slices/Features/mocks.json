@@ -24,6 +24,11 @@
 						}
 					}
 				]
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "machine",
+				"type": "Text"
 			}
 		},
 		"items": [

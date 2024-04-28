@@ -22,6 +22,7 @@ const Feature = ({ slice }: FeatureProps): JSX.Element => {
       <SectionTitle
         subheading={slice.primary.sub_heading}
         heading={slice.primary.heading}
+        description={slice.primary.description}
       />
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3">

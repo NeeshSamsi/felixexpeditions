@@ -369,6 +369,16 @@ export interface FeatureSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   heading: prismic.TitleField
+
+  /**
+   * Description field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional
+   * - **API ID Path**: feature.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
 }
 
 /**
