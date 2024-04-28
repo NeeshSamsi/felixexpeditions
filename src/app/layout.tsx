@@ -31,7 +31,7 @@ export default async function RootLayout({
   } = await client.getSingle("site_settings")
 
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={cn(
           alegreya.variable,
