@@ -1,8 +1,8 @@
 {
-  "id": "feature",
+  "id": "trips",
   "type": "SharedSlice",
-  "name": "Features",
-  "description": "Feature",
+  "name": "Trips",
+  "description": "Trips",
   "variations": [
     {
       "id": "default",
@@ -12,7 +12,7 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "sub_heading": {
+        "subheading": {
           "type": "StructuredText",
           "config": {
             "label": "Sub Heading",
@@ -29,31 +29,16 @@
             "allowTargetBlank": false,
             "single": "heading2"
           }
-        }
-      },
-      "items": {
-        "icon": {
-          "type": "Text",
-          "config": {
-            "label": "Icon",
-            "placeholder": "Copy the icon name from https://lucide.dev"
-          }
-        },
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "title",
-            "placeholder": ""
-          }
         },
         "description": {
           "type": "Text",
           "config": {
-            "label": "description",
-            "placeholder": ""
+            "label": "Description",
+            "placeholder": "Optional"
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }

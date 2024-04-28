@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client"
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
-type PageDocumentDataSlicesSlice = FeatureSlice | HeroSlice
+type PageDocumentDataSlicesSlice = TripsSlice | FeatureSlice | HeroSlice
 
 /**
  * Content for Page documents
@@ -703,6 +703,68 @@ type HeroSliceVariation =
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>
 
+/**
+ * Primary content in *Trips → Primary*
+ */
+export interface TripsSliceDefaultPrimary {
+  /**
+   * Sub Heading field in *Trips → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trips.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField
+
+  /**
+   * Heading field in *Trips → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trips.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Trips → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional
+   * - **API ID Path**: trips.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Default variation for Trips Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TripsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TripsSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Trips*
+ */
+type TripsSliceVariation = TripsSliceDefault
+
+/**
+ * Trips Shared Slice
+ *
+ * - **API ID**: `trips`
+ * - **Description**: Trips
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TripsSlice = prismic.SharedSlice<"trips", TripsSliceVariation>
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -738,6 +800,10 @@ declare module "@prismicio/client" {
       HeroSliceWithImage,
       HeroSliceWithImageBottom,
       HeroSliceContactForm,
+      TripsSlice,
+      TripsSliceDefaultPrimary,
+      TripsSliceVariation,
+      TripsSliceDefault,
     }
   }
 }
