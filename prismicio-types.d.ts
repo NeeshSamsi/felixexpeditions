@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client"
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 type PageDocumentDataSlicesSlice =
+  | ContactInfoSlice
   | CallToActionSlice
   | FaqsSlice
   | AboutSlice
@@ -97,6 +98,131 @@ export interface SiteSettingsDocumentDataNavigationLinksItem {
 }
 
 /**
+ * Item in *Site Settings → Footer Settings*
+ */
+export interface SiteSettingsDocumentDataFooterItem {
+  /**
+   * Footer Description field in *Site Settings → Footer Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.footer[].footer_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_description: prismic.KeyTextField
+
+  /**
+   * Instagram Profile field in *Site Settings → Footer Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.footer[].instagram_profile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instagram_profile: prismic.LinkField
+
+  /**
+   * LinkedIn Profile field in *Site Settings → Footer Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.footer[].linkedin_profile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin_profile: prismic.LinkField
+
+  /**
+   * Twitter Profile field in *Site Settings → Footer Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.footer[].twitter_profile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  twitter_profile: prismic.LinkField
+}
+
+/**
+ * Item in *Site Settings → Mailing List*
+ */
+export interface SiteSettingsDocumentDataMailingListItem {
+  /**
+   * Heading field in *Site Settings → Mailing List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.mailing_list[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Sub Heading field in *Site Settings → Mailing List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.mailing_list[].sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_heading: prismic.KeyTextField
+
+  /**
+   * Call to Action field in *Site Settings → Mailing List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.mailing_list[].call_to_action
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  call_to_action: prismic.KeyTextField
+}
+
+/**
+ * Item in *Site Settings → Emails*
+ */
+export interface SiteSettingsDocumentDataEmailsItem {
+  /**
+   * Email Address field in *Site Settings → Emails*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.emails[].email_address
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_address: prismic.KeyTextField
+}
+
+/**
+ * Item in *Site Settings → Phone Numbers*
+ */
+export interface SiteSettingsDocumentDataPhoneNumbersItem {
+  /**
+   * Phone Number field in *Site Settings → Phone Numbers*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.phone_numbers[].phone_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number: prismic.KeyTextField
+}
+
+/**
+ * Item in *Site Settings → Offices*
+ */
+export interface SiteSettingsDocumentDataOfficesItem {
+  /**
+   * Office in City field in *Site Settings → Offices*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.offices[].office
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  office: prismic.KeyTextField
+}
+
+/**
  * Content for Site Settings documents
  */
 interface SiteSettingsDocumentData {
@@ -114,81 +240,63 @@ interface SiteSettingsDocumentData {
   >
 
   /**
-   * Footer Description field in *Site Settings*
+   * Footer Settings field in *Site Settings*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: site_settings.footer_description
+   * - **API ID Path**: site_settings.footer[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  footer_description: prismic.KeyTextField
+  footer: prismic.GroupField<Simplify<SiteSettingsDocumentDataFooterItem>>
 
   /**
-   * Instagram Profile field in *Site Settings*
+   * Mailing List field in *Site Settings*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: site_settings.instagram
+   * - **API ID Path**: site_settings.mailing_list[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  instagram: prismic.LinkField
+  mailing_list: prismic.GroupField<
+    Simplify<SiteSettingsDocumentDataMailingListItem>
+  >
 
   /**
-   * LinkedIn Profile field in *Site Settings*
+   * Emails field in *Site Settings*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: site_settings.linkedin
+   * - **API ID Path**: site_settings.emails[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  linkedin: prismic.LinkField
+  emails: prismic.GroupField<Simplify<SiteSettingsDocumentDataEmailsItem>>
 
   /**
-   * Twitter Profile field in *Site Settings*
+   * Phone Numbers field in *Site Settings*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: site_settings.twitter
+   * - **API ID Path**: site_settings.phone_numbers[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  twitter: prismic.LinkField
+  phone_numbers: prismic.GroupField<
+    Simplify<SiteSettingsDocumentDataPhoneNumbersItem>
+  >
 
   /**
-   * Mailing List Heading field in *Site Settings*
+   * Offices field in *Site Settings*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: site_settings.mailing_list_heading
+   * - **API ID Path**: site_settings.offices[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  mailing_list_heading: prismic.KeyTextField
-
-  /**
-   * Mailing List Sub Heading field in *Site Settings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: site_settings.mailing_list_sub_heading
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  mailing_list_sub_heading: prismic.KeyTextField
-
-  /**
-   * Mailing List Call to Action field in *Site Settings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: site_settings.mailing_list_call_to_action
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  mailing_list_call_to_action: prismic.KeyTextField /**
+  offices: prismic.GroupField<Simplify<SiteSettingsDocumentDataOfficesItem>> /**
    * Meta Title field in *Site Settings*
    *
    * - **Field Type**: Text
@@ -517,6 +625,71 @@ type CallToActionSliceVariation = CallToActionSliceDefault
 export type CallToActionSlice = prismic.SharedSlice<
   "call_to_action",
   CallToActionSliceVariation
+>
+
+/**
+ * Primary content in *ContactInfo → Primary*
+ */
+export interface ContactInfoSliceDefaultPrimary {
+  /**
+   * Emails Heading field in *ContactInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.primary.emails_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  emails_heading: prismic.KeyTextField
+
+  /**
+   * Offices Heading field in *ContactInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.primary.offices_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  offices_heading: prismic.KeyTextField
+
+  /**
+   * Phone Numbers Heading field in *ContactInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.primary.numbers_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  numbers_heading: prismic.KeyTextField
+}
+
+/**
+ * Default variation for ContactInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactInfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactInfoSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ContactInfo*
+ */
+type ContactInfoSliceVariation = ContactInfoSliceDefault
+
+/**
+ * ContactInfo Shared Slice
+ *
+ * - **API ID**: `contact_info`
+ * - **Description**: ContactInfo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactInfoSlice = prismic.SharedSlice<
+  "contact_info",
+  ContactInfoSliceVariation
 >
 
 /**
@@ -1051,6 +1224,11 @@ declare module "@prismicio/client" {
       SiteSettingsDocument,
       SiteSettingsDocumentData,
       SiteSettingsDocumentDataNavigationLinksItem,
+      SiteSettingsDocumentDataFooterItem,
+      SiteSettingsDocumentDataMailingListItem,
+      SiteSettingsDocumentDataEmailsItem,
+      SiteSettingsDocumentDataPhoneNumbersItem,
+      SiteSettingsDocumentDataOfficesItem,
       TripDocument,
       TripDocumentData,
       AllDocumentTypes,
@@ -1063,6 +1241,10 @@ declare module "@prismicio/client" {
       CallToActionSliceDefaultPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
+      ContactInfoSlice,
+      ContactInfoSliceDefaultPrimary,
+      ContactInfoSliceVariation,
+      ContactInfoSliceDefault,
       FaqsSlice,
       FaqsSliceDefaultPrimary,
       FaqsSliceDefaultItem,

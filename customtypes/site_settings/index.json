@@ -31,59 +31,122 @@
           }
         }
       },
-      "footer_description": {
-        "type": "Text",
+      "footer": {
+        "type": "Group",
         "config": {
-          "label": "Footer Description",
-          "placeholder": ""
+          "label": "Footer Settings",
+          "repeat": false,
+          "fields": {
+            "footer_description": {
+              "type": "Text",
+              "config": {
+                "label": "Footer Description",
+                "placeholder": ""
+              }
+            },
+            "instagram_profile": {
+              "type": "Link",
+              "config": {
+                "label": "Instagram Profile",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "linkedin_profile": {
+              "type": "Link",
+              "config": {
+                "label": "LinkedIn Profile",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "twitter_profile": {
+              "type": "Link",
+              "config": {
+                "label": "Twitter Profile",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
         }
       },
-      "instagram": {
-        "type": "Link",
+      "mailing_list": {
+        "type": "Group",
         "config": {
-          "label": "Instagram Profile",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "select": null
+          "label": "Mailing List",
+          "repeat": false,
+          "fields": {
+            "heading": {
+              "type": "Text",
+              "config": {
+                "label": "Heading",
+                "placeholder": ""
+              }
+            },
+            "sub_heading": {
+              "type": "Text",
+              "config": {
+                "label": "Sub Heading",
+                "placeholder": ""
+              }
+            },
+            "call_to_action": {
+              "type": "Text",
+              "config": {
+                "label": "Call to Action",
+                "placeholder": ""
+              }
+            }
+          }
         }
       },
-      "linkedin": {
-        "type": "Link",
+      "emails": {
+        "type": "Group",
         "config": {
-          "label": "LinkedIn Profile",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "select": null
+          "label": "Emails",
+          "repeat": true,
+          "fields": {
+            "email_address": {
+              "type": "Text",
+              "config": {
+                "label": "Email Address",
+                "placeholder": ""
+              }
+            }
+          }
         }
       },
-      "twitter": {
-        "type": "Link",
+      "phone_numbers": {
+        "type": "Group",
         "config": {
-          "label": "Twitter Profile",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "select": null
+          "label": "Phone Numbers",
+          "repeat": true,
+          "fields": {
+            "phone_number": {
+              "type": "Text",
+              "config": {
+                "label": "Phone Number",
+                "placeholder": ""
+              }
+            }
+          }
         }
       },
-      "mailing_list_heading": {
-        "type": "Text",
+      "offices": {
+        "type": "Group",
         "config": {
-          "label": "Mailing List Heading",
-          "placeholder": ""
-        }
-      },
-      "mailing_list_sub_heading": {
-        "type": "Text",
-        "config": {
-          "label": "Mailing List Sub Heading",
-          "placeholder": ""
-        }
-      },
-      "mailing_list_call_to_action": {
-        "type": "Text",
-        "config": {
-          "label": "Mailing List Call to Action",
-          "placeholder": ""
+          "label": "Offices",
+          "repeat": true,
+          "fields": {
+            "office": {
+              "type": "Text",
+              "config": {
+                "label": "Office in City",
+                "placeholder": ""
+              }
+            }
+          }
         }
       }
     },

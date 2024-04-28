@@ -1,0 +1,40 @@
+{
+  "id": "contact_info",
+  "type": "SharedSlice",
+  "name": "ContactInfo",
+  "description": "ContactInfo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "emails_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Emails Heading",
+            "placeholder": ""
+          }
+        },
+        "offices_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Offices Heading",
+            "placeholder": ""
+          }
+        },
+        "numbers_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Phone Numbers Heading",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

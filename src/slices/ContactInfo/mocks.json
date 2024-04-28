@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"emails_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "human",
+				"type": "Text"
+			},
+			"offices_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "bark",
+				"type": "Text"
+			},
+			"numbers_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "equally",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
