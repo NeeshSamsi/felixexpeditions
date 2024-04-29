@@ -1,20 +1,22 @@
 "use client"
 
-import type { Content } from "@prismicio/client"
+import type { KeyTextField } from "@prismicio/client"
 
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { mailingListSchema } from "@/lib/schemas"
 import { subscribe } from "@/actions/mailing-list"
 
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import Icon from "./Icon"
+import Text from "./Text"
 
 type Props = {
-  cta: Content.SiteSettingsDocumentData["mailing_list_call_to_action"]
+  cta: KeyTextField
 }
 
 export default function MailingListForm({ cta }: Props) {
@@ -25,10 +27,27 @@ export default function MailingListForm({ cta }: Props) {
     },
   })
 
-  function onSubmit(values: z.infer<typeof mailingListSchema>) {
+  const [submitting, setSubmitting] = useState(false)
+  const [confirmation, setConfirmation] = useState<string | undefined>(
+    undefined,
+  )
+
+  async function onSubmit(values: z.infer<typeof mailingListSchema>) {
     const { email } = values
 
-    subscribe({ email })
+    setSubmitting(true)
+    const res = await subscribe({ email })
+
+    if (res.success) {
+      setSubmitting(false)
+      form.reset()
+      setConfirmation(res.message)
+      setTimeout(() => setConfirmation(undefined), 5000)
+    } else {
+      setSubmitting(false)
+      setConfirmation(res.message)
+      setTimeout(() => setConfirmation(undefined), 5000)
+    }
   }
 
   return (
@@ -58,16 +77,26 @@ export default function MailingListForm({ cta }: Props) {
         <Button
           variant="secondary"
           type="submit"
+          disabled={submitting}
           className="group flex items-center gap-4 text-lg font-normal sm:gap-2 xl:text-xl"
         >
-          <span>{cta}</span>
-          <Icon
-            name="send-horizontal"
-            size={20}
-            className="transition-transform group-hover:translate-x-0.5"
-          />
+          <span>{submitting ? "Submitting" : cta}</span>
+          {submitting ? (
+            <Icon name="loader-circle" size={20} className="animate-spin" />
+          ) : (
+            <Icon
+              name="send-horizontal"
+              size={20}
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          )}
         </Button>
       </form>
+      {confirmation && (
+        <Text size="base" className="text-primary">
+          {confirmation}
+        </Text>
+      )}
     </Form>
   )
 }
