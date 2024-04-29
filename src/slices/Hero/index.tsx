@@ -61,12 +61,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       {slice.variation === "withImage" && (
         <PrismicNextImage
           field={slice.primary.image}
+          priority
           className="h-full object-cover sm:max-w-[60%] lg:max-w-xl xl:max-w-2xl"
         />
       )}
       {slice.variation === "contactForm" && (
         <PrismicNextImage
           field={slice.primary.image}
+          priority
           className="h-full rounded-sm object-cover shadow-md shadow-secondary/20 sm:max-w-[60%] lg:max-w-xl xl:max-w-2xl"
         />
       )}
@@ -75,10 +77,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <div className="mt-4 grid gap-4 md:mt-8 md:grid-cols-[2fr,1fr] md:gap-8">
           <PrismicNextImage
             field={slice.primary.image_left}
+            priority
             className="h-56 rounded-sm object-cover shadow-md shadow-secondary/20 lg:h-72 xl:h-96"
           />
           <PrismicNextImage
             field={slice.primary.image_right}
+            priority
             className="h-56 rounded-sm object-cover shadow-md shadow-secondary/20 lg:h-72 xl:h-96"
           />
         </div>
