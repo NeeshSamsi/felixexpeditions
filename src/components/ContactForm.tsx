@@ -39,12 +39,18 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof contactFormSchema>) {
     setSubmitting(true)
-    await send(values)
+    const res = await send(values)
 
-    setSubmitting(false)
-    form.reset()
-    setConfirmation("Sent message! We'll get back to you soon.")
-    setTimeout(() => setConfirmation(undefined), 5000)
+    if (res.success) {
+      setSubmitting(false)
+      form.reset()
+      setConfirmation(res.message)
+      setTimeout(() => setConfirmation(undefined), 5000)
+    } else {
+      setSubmitting(false)
+      setConfirmation(res.message)
+      setTimeout(() => setConfirmation(undefined), 5000)
+    }
   }
 
   const textStyles = "text-base lg:text-lg 2xl:text-xl"
@@ -114,7 +120,7 @@ export default function ContactForm() {
           )}
         />
 
-        <div className="flex items-end gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
           <Button
             type="submit"
             disabled={submitting}
