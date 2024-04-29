@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client"
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 type PageDocumentDataSlicesSlice =
+  | GallerySlice
   | ContactInfoSlice
   | CallToActionSlice
   | FaqsSlice
@@ -877,6 +878,48 @@ type FeatureSliceVariation = FeatureSliceDefault
 export type FeatureSlice = prismic.SharedSlice<"feature", FeatureSliceVariation>
 
 /**
+ * Primary content in *Gallery → Items*
+ */
+export interface GallerySliceDefaultItem {
+  /**
+   * Image field in *Gallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<GallerySliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Gallery*
+ */
+type GallerySliceVariation = GallerySliceDefault
+
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: Gallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySlice = prismic.SharedSlice<"gallery", GallerySliceVariation>
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -1255,6 +1298,10 @@ declare module "@prismicio/client" {
       FeatureSliceDefaultItem,
       FeatureSliceVariation,
       FeatureSliceDefault,
+      GallerySlice,
+      GallerySliceDefaultItem,
+      GallerySliceVariation,
+      GallerySliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceWithImagePrimary,

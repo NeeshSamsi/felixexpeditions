@@ -8,6 +8,7 @@ export const components = {
   contact_info: dynamic(() => import("./ContactInfo")),
   faqs: dynamic(() => import("./Faqs")),
   feature: dynamic(() => import("./Features")),
+  gallery: dynamic(() => import("./Gallery")),
   hero: dynamic(() => import("./Hero")),
   trips: dynamic(() => import("./Trips")),
 }
