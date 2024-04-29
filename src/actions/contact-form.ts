@@ -8,7 +8,7 @@ export async function send({
   email,
   message,
 }: z.infer<typeof contactFormSchema>) {
-  const res = await fetch("https://submit-form.com/ijoC9pZN1", {
+  await fetch("https://submit-form.com/ijoC9pZN1", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,6 +22,4 @@ export async function send({
       "_email.form": name,
     }),
   })
-
-  console.log(JSON.stringify(res, null, 2))
 }
