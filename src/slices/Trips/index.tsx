@@ -57,7 +57,7 @@ const Trips = async ({ slice }: TripsProps): Promise<JSX.Element> => {
           ) => (
             <div
               key={index}
-              className="flex flex-col justify-between gap-6 rounded-sm bg-muted p-6 shadow-md shadow-secondary/20 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-secondary/10"
+              className="flex flex-col justify-between gap-6 rounded-sm bg-muted p-6 shadow-md shadow-secondary/20 transition-all hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="space-y-6">
                 <PrismicNextImage
