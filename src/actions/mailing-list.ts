@@ -13,7 +13,7 @@ export async function subscribe({
   try {
     const xata = getXataClient()
 
-    await xata.db.MailingList.create({
+    const record = await xata.db.MailingList.create({
       email,
     })
 
@@ -21,7 +21,16 @@ export async function subscribe({
       success: true,
       message: "Subscribed! Stay tuned for updates.",
     }
-  } catch (error) {
+  } catch (error: any) {
+    if (
+      error.errors[0].message ===
+      "invalid record: column [email]: is not unique"
+    )
+      return {
+        success: false,
+        message: "You are already subscribed.",
+      }
+
     return {
       success: false,
       message: "Something went wrong. Please try again later.",
