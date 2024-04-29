@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next"
 import { createClient } from "@/prismicio"
+import { url } from "@/lib/config"
 
-export default async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const client = createClient()
 
   const pages = await client.getAllByType("page")
@@ -9,12 +10,12 @@ export default async function generateSitemap(): Promise<MetadataRoute.Sitemap> 
   return pages.map((page) => {
     if (page.uid === "home") {
       return {
-        url: "/",
+        url,
         lastModified: new Date(),
       }
     } else {
       return {
-        url: `/${page.uid}`,
+        url: `${url}/${page.uid}`,
         lastModified: new Date(),
       }
     }
