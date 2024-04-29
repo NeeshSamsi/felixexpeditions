@@ -3,8 +3,10 @@
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { contactFormSchema } from "@/lib/schemas"
+import { send } from "@/actions/contact-form"
 import { cn } from "@/lib/utils"
 
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import {
   Form,
@@ -18,8 +20,6 @@ import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
 import Icon from "./Icon"
-import { send } from "@/actions/contact-form"
-import { useState } from "react"
 import Text from "./Text"
 
 export default function ContactForm() {
@@ -126,11 +126,7 @@ export default function ContactForm() {
               <span>Send message</span>
             )}
             {submitting ? (
-              <Icon
-                name="loader-circle"
-                size={20}
-                className="animate-spin transition-transform group-hover:translate-x-1"
-              />
+              <Icon name="loader-circle" size={20} className="animate-spin" />
             ) : (
               <Icon
                 name="send-horizontal"
