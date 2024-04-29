@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Felix-Expedition-s-workspace-f5cptr.eu-central-1.xata.sh/db/felix-expeditions",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

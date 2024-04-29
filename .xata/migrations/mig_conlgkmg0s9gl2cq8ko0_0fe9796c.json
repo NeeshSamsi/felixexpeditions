@@ -1,0 +1,17 @@
+{
+  "id": "mig_conlgkmg0s9gl2cq8ko0",
+  "parentID": "mig_conlgbmg0s9gl2cq8kn0",
+  "checksum": "1:0fe9796c6b83d41de2b425717199ec282dd088f7f93a1a6b378cb45bc74ce5d4",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "email",
+          "type": "string",
+          "unique": true
+        },
+        "table": "MailingList"
+      }
+    }
+  ]
+}

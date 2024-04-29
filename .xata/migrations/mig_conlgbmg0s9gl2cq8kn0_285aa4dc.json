@@ -1,0 +1,11 @@
+{
+  "id": "mig_conlgbmg0s9gl2cq8kn0",
+  "checksum": "1:285aa4dc07391a71d0e0f0b36c272eb98a1cd0db5ab8ea381cd4b298caacc4cc",
+  "operations": [
+    {
+      "addTable": {
+        "table": "MailingList"
+      }
+    }
+  ]
+}
