@@ -36,15 +36,7 @@ export default function MailingListForm({ cta }: Props) {
     const { email } = values
 
     setSubmitting(true)
-    // const data = await subscribe({ email })
-    const res = await fetch("/api/mailing-list/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-    const data: { success: boolean; message: string } = await res.json()
+    const data = await subscribe({ email })
 
     if (data.success) {
       setSubmitting(false)
