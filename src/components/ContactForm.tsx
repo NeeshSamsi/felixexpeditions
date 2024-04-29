@@ -19,6 +19,8 @@ import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
 import Icon from "./Icon"
 import { send } from "@/actions/contact-form"
+import { useState } from "react"
+import Text from "./Text"
 
 export default function ContactForm() {
   const form = useForm<z.infer<typeof contactFormSchema>>({
@@ -30,8 +32,19 @@ export default function ContactForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof contactFormSchema>) {
-    send(values)
+  const [submitting, setSubmitting] = useState(false)
+  const [confirmation, setConfirmation] = useState<string | undefined>(
+    undefined,
+  )
+
+  async function onSubmit(values: z.infer<typeof contactFormSchema>) {
+    setSubmitting(true)
+    await send(values)
+
+    setSubmitting(false)
+    form.reset()
+    setConfirmation("Sent message! We'll get back to you soon.")
+    setTimeout(() => setConfirmation(undefined), 5000)
   }
 
   const textStyles = "text-base lg:text-lg 2xl:text-xl"
@@ -101,17 +114,34 @@ export default function ContactForm() {
           )}
         />
 
-        <Button
-          type="submit"
-          className={cn(textStyles, "group flex items-center gap-2")}
-        >
-          <span>Send message</span>
-          <Icon
-            name="send-horizontal"
-            size={20}
-            className="transition-transform group-hover:translate-x-1"
-          />
-        </Button>
+        <div className="flex items-end gap-4">
+          <Button
+            type="submit"
+            disabled={submitting}
+            className={cn(textStyles, "group flex items-center gap-2")}
+          >
+            {submitting ? (
+              <span>Sending message</span>
+            ) : (
+              <span>Send message</span>
+            )}
+            {submitting ? (
+              <Icon
+                name="loader-circle"
+                size={20}
+                className="animate-spin transition-transform group-hover:translate-x-1"
+              />
+            ) : (
+              <Icon
+                name="send-horizontal"
+                size={20}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            )}
+          </Button>
+
+          {confirmation && <Text size="base">{confirmation}</Text>}
+        </div>
       </form>
     </Form>
   )
