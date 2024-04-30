@@ -7,6 +7,7 @@ import { createClient, repositoryName } from "@/prismicio"
 import { PrismicPreview } from "@prismicio/next"
 import NavBar from "@/components/NavBar"
 import Footer from "@/components/Footer"
+import Script from "next/script"
 
 const alegreya = Alegreya_Sans({
   subsets: ["latin"],
@@ -32,6 +33,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="scroll-smooth">
+      <Script
+        strategy="lazyOnload"
+        src="https://analytics.eu.umami.is/script.js"
+        data-website-id="f8f76a60-ca1b-45cb-8a9c-d8a867c0e697"
+      />
       <body
         className={cn(
           alegreya.variable,
