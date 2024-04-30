@@ -35,7 +35,7 @@ export default async function RootLayout({
     <html lang="en" className="scroll-smooth">
       <Script
         strategy="lazyOnload"
-        src="https://analytics.eu.umami.is/script.js"
+        src="/script.js"
         data-website-id="f8f76a60-ca1b-45cb-8a9c-d8a867c0e697"
       />
       <body
