@@ -24,6 +24,7 @@ export async function send({
         message,
         _replyto: email,
         "_email.from": name,
+        "_email.subject": `New Contact Form Submission: ${name}`,
       }),
     })
 
