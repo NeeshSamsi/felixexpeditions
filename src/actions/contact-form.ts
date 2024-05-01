@@ -23,7 +23,7 @@ export async function send({
         email,
         message,
         _replyto: email,
-        "_email.form": name,
+        "_email.from": name,
       }),
     })
 
